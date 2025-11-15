@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
   { href: "/about", label: "私たちについて" },
@@ -13,8 +14,16 @@ export default function Header() {
     <header className="site-header">
       <div className="container">
         <Link className="brand" href="/">
-          <span className="brand-logo">@waza</span>
-          <span className="brand-tagline">手間ひまを愉しむ暮らしの道具店</span>
+          {/* @wazaロゴ画像 */}
+          <Image
+            src="/images/logo.png"
+            alt="@waza"
+            width={150}
+            height={50}
+            className="brand-logo-img"
+            priority
+          />
+          <span className="brand-tagline">手間ひまを愉しむ暮らしの道具屋</span>
         </Link>
         <nav className="main-nav">
           {navItems.map((item) => (

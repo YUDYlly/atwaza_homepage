@@ -1,0 +1,183 @@
+{
+  "version": "1.0.0",
+  "name": "@waza Design System",
+  "description": "Next.jsホームページのデザインシステム",
+  "tokens": {
+    "colors": [
+      {
+        "name": "body",
+        "value": "#f7f3ed",
+        "type": "color"
+      },
+      {
+        "name": "section",
+        "value": "#fffdf8",
+        "type": "color"
+      },
+      {
+        "name": "primary",
+        "value": "#6c7a55",
+        "type": "color"
+      },
+      {
+        "name": "accent",
+        "value": "#c99e63",
+        "type": "color"
+      },
+      {
+        "name": "text",
+        "value": "#3e3a34",
+        "type": "color"
+      },
+      {
+        "name": "muted",
+        "value": "#6f675e",
+        "type": "color"
+      },
+      {
+        "name": "light",
+        "value": "#9a9388",
+        "type": "color"
+      }
+    ],
+    "spacing": [
+      {
+        "name": "xs",
+        "value": "8px",
+        "type": "spacing"
+      },
+      {
+        "name": "sm",
+        "value": "16px",
+        "type": "spacing"
+      },
+      {
+        "name": "md",
+        "value": "32px",
+        "type": "spacing"
+      },
+      {
+        "name": "lg",
+        "value": "64px",
+        "type": "spacing"
+      },
+      {
+        "name": "xl",
+        "value": "96px",
+        "type": "spacing"
+      }
+    ],
+    "typography": [
+      {
+        "name": "heading",
+        "value": "Noto Serif JP, serif",
+        "type": "fontFamily"
+      },
+      {
+        "name": "body",
+        "value": "Noto Sans JP, sans-serif",
+        "type": "fontFamily"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "AnnouncementBar",
+      "file": "AnnouncementBar.jsx",
+      "classes": [
+        "announcement-bar",
+        "container announcement-content"
+      ],
+      "description": "React component: AnnouncementBar"
+    },
+    {
+      "name": "Footer",
+      "file": "Footer.jsx",
+      "classes": [
+        "site-footer",
+        "container footer-grid",
+        "brand-logo",
+        "footer-copy",
+        "footer-links",
+        "footer-link-desc",
+        "footer-info-label",
+        "footer-info-value",
+        "footer-info-desc",
+        "footer-bottom"
+      ],
+      "description": "React component: Footer"
+    },
+    {
+      "name": "Header",
+      "file": "Header.jsx",
+      "classes": [
+        "site-header",
+        "container",
+        "brand",
+        "brand-logo-img",
+        "brand-tagline",
+        "main-nav"
+      ],
+      "description": "React component: Header"
+    }
+  ],
+  "pages": [
+    {
+      "route": "about",
+      "sections": [
+        "page-hero",
+        "page-section",
+        "owner"
+      ],
+      "description": "Page route: about"
+    },
+    {
+      "route": "collections",
+      "sections": [
+        "page-hero",
+        "page-section"
+      ],
+      "description": "Page route: collections"
+    },
+    {
+      "route": "contact",
+      "sections": [
+        "page-hero",
+        "page-section"
+      ],
+      "description": "Page route: contact"
+    },
+    {
+      "route": "gift",
+      "sections": [
+        "page-hero",
+        "page-section",
+        "newsletter"
+      ],
+      "description": "Page route: gift"
+    },
+    {
+      "route": "journal",
+      "sections": [
+        "page-hero",
+        "page-section",
+        "newsletter"
+      ],
+      "description": "Page route: journal"
+    },
+    {
+      "route": "/",
+      "sections": [
+        "hero hero--main",
+        "concept-section",
+        "usp-section",
+        "category-section",
+        "products-section",
+        "story-section",
+        "journal-section",
+        "newsletter-section"
+      ],
+      "description": "Page route: /"
+    }
+  ]
+}

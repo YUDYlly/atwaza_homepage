@@ -1,0 +1,430 @@
+# @waza Design System Rules
+
+This document provides comprehensive design system rules for integrating Figma designs using the Model Context Protocol.
+
+## 1. Design Token Definitions
+
+### Location
+Design tokens are defined in CSS custom properties (CSS variables) in:
+- **File**: `atwaza-next/src/app/globals.css`
+- **Root selector**: `:root`
+
+### Token Structure
+
+#### Colors
+```css
+:root {
+  /* Background Colors */
+  --bg-body: #f7f3ed;        /* Main page background */
+  --bg-section: #fffdf8;      /* Section background */
+  
+  /* Brand Colors */
+  --color-primary: #6c7a55;   /* Primary brand color (olive green) */
+  --color-accent: #c99e63;    /* Accent color (warm brown) */
+  
+  /* Text Colors */
+  --color-text: #3e3a34;     /* Primary text color */
+  --color-muted: #6f675e;     /* Muted/secondary text */
+  --color-light: #9a9388;     /* Light text */
+}
+```
+
+**Usage Pattern:**
+```css
+.element {
+  color: var(--color-text);
+  background: var(--bg-section);
+}
+```
+
+#### Typography
+```css
+:root {
+  --font-heading: "Noto Serif JP", serif;  /* Headings */
+  --font-body: "Noto Sans JP", sans-serif; /* Body text */
+}
+```
+
+**Font Loading:**
+Fonts are loaded via Google Fonts in `layout.js`:
+```jsx
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap"
+  rel="stylesheet"
+/>
+```
+
+**Font Weights:**
+- Heading: 400 (regular), 600 (semi-bold)
+- Body: 300 (light), 400 (regular), 500 (medium)
+
+#### Spacing Scale
+```css
+:root {
+  --spacing-xs: 8px;   /* Extra small spacing */
+  --spacing-sm: 16px;  /* Small spacing */
+  --spacing-md: 32px;  /* Medium spacing */
+  --spacing-lg: 64px;  /* Large spacing */
+  --spacing-xl: 96px;  /* Extra large spacing */
+}
+```
+
+**Usage Pattern:**
+```css
+.section {
+  padding: var(--spacing-xl) 0;
+  gap: var(--spacing-md);
+}
+```
+
+#### Border Radius
+```css
+:root {
+  --radius-base: 8px;  /* Standard border radius */
+}
+```
+
+#### Shadows
+```css
+:root {
+  --shadow-soft: 0 4px 16px rgba(62, 58, 52, 0.08);
+}
+```
+
+### Token Transformation
+- No token transformation system currently in place
+- Tokens are used directly via CSS variables
+- Consider implementing a token-to-JS transformation if needed for component props
+
+## 2. Component Library
+
+### Location
+Components are located in:
+- **Directory**: `atwaza-next/src/components/`
+- **Files**: 
+  - `Header.jsx`
+  - `Footer.jsx`
+  - `AnnouncementBar.jsx`
+
+### Component Architecture
+
+#### Pattern: Functional Components with CSS Modules
+```jsx
+// Example: Header.jsx
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Header() {
+  return (
+    <header className="site-header">
+      {/* Component JSX */}
+    </header>
+  );
+}
+```
+
+#### Component Structure
+1. **Header** (`Header.jsx`)
+   - Logo with Image component
+   - Navigation menu
+   - Responsive (mobile nav hidden on small screens)
+
+2. **Footer** (`Footer.jsx`)
+   - Multi-column grid layout
+   - Links and information sections
+   - Dark theme styling
+
+3. **AnnouncementBar** (`AnnouncementBar.jsx`)
+   - Top banner component
+   - Dark background with light text
+
+### Component Documentation
+- No Storybook or component documentation system currently in place
+- Components use className-based styling (no CSS Modules)
+- All styles are in `globals.css`
+
+### Component Naming Convention
+- PascalCase for component files: `Header.jsx`, `Footer.jsx`
+- kebab-case for CSS classes: `site-header`, `brand-logo-img`
+- Descriptive class names with BEM-like structure
+
+## 3. Frameworks & Libraries
+
+### UI Framework
+- **React**: ^18.2.0
+- **Next.js**: ^14.0.0 (App Router)
+- **React DOM**: ^18.2.0
+
+### Styling Approach
+- **Method**: Global CSS file (`globals.css`)
+- **No CSS-in-JS**: No styled-components, emotion, or similar
+- **No CSS Modules**: All styles are global with class names
+- **CSS Custom Properties**: Used for design tokens
+
+### Build System
+- **Bundler**: Next.js built-in (Webpack)
+- **Package Manager**: npm
+- **Build Command**: `npm run build`
+- **Dev Server**: `npm run dev`
+
+### Configuration Files
+- `next.config.js`: Next.js configuration
+  - Image optimization settings
+  - Remote image domains configured
+
+## 4. Asset Management
+
+### Image Storage
+- **Location**: `atwaza-next/public/images/`
+- **Structure**: Organized by category:
+  ```
+  public/images/
+  ├── logo.png
+  ├── タオル/
+  │   ├── 専髪タオル/
+  │   └── おぼろタオル/
+  ├── 器/
+  ├── 食料品/
+  │   └── お茶/
+  ├── 香り/
+  └── 衣類/
+  ```
+
+### Image Usage Pattern
+```jsx
+import Image from "next/image";
+
+<Image
+  src="/images/食料品/お茶/煎茶【禅】_1.jpg"
+  alt="Description"
+  width={800}
+  height={600}
+  className="hero-image-img"
+  priority  // For above-the-fold images
+/>
+```
+
+### Image Optimization
+- **Next.js Image Component**: Automatic optimization
+- **Responsive Images**: Handled by Next.js
+- **Lazy Loading**: Automatic (except priority images)
+- **Format Optimization**: Next.js handles WebP conversion
+
+### Asset Naming Convention
+- Japanese characters allowed in filenames
+- Category-based folder structure
+- Descriptive filenames: `amazonおぼろ1.jpg`, `煎茶【禅】_1.jpg`
+
+### CDN Configuration
+- No CDN currently configured
+- Images served from `/public` directory
+- Consider CDN for production optimization
+
+## 5. Icon System
+
+### Current Status
+- **No dedicated icon system** currently implemented
+- Icons would be stored in `public/images/icons/` if needed
+- Consider implementing:
+  - SVG sprite system
+  - Icon component library
+  - Font icon system (if needed)
+
+### Icon Usage Pattern (Recommended)
+```jsx
+// If implementing icon system:
+import Icon from '@/components/Icon';
+
+<Icon name="arrow-right" size={16} />
+```
+
+## 6. Styling Approach
+
+### CSS Methodology
+- **Global CSS**: Single `globals.css` file
+- **Class-based**: No CSS Modules or scoped styles
+- **BEM-like naming**: `.component-element--modifier` pattern
+- **Utility classes**: Limited (container, btn, etc.)
+
+### Global Styles
+- **File**: `atwaza-next/src/app/globals.css`
+- **Imported**: In `layout.js` via `import "./globals.css"`
+- **Reset**: Basic box-sizing reset included
+- **Typography**: Base typography styles defined
+
+### Responsive Design
+- **Breakpoint**: `768px` (mobile/tablet)
+- **Media Queries**: Defined at bottom of `globals.css`
+- **Approach**: Mobile-first (base styles for mobile, desktop overrides)
+
+**Example:**
+```css
+@media (max-width: 768px) {
+  .hero--main .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+### Layout Patterns
+- **Container**: `.container` class with max-width and padding
+- **Grid Layouts**: CSS Grid used extensively
+- **Flexbox**: Used for component internal layouts
+
+**Container Pattern:**
+```css
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+```
+
+## 7. Project Structure
+
+### Directory Organization
+```
+atwaza-next/
+├── src/
+│   ├── app/              # Next.js App Router pages
+│   │   ├── about/
+│   │   ├── collections/
+│   │   ├── contact/
+│   │   ├── gift/
+│   │   ├── journal/
+│   │   ├── globals.css   # All global styles
+│   │   ├── layout.js     # Root layout
+│   │   └── page.js       # Home page
+│   └── components/       # React components
+│       ├── Header.jsx
+│       ├── Footer.jsx
+│       └── AnnouncementBar.jsx
+├── public/
+│   └── images/           # Static assets
+└── package.json
+```
+
+### Feature Organization
+- **Pages**: Organized by route in `app/` directory
+- **Components**: Shared components in `components/` directory
+- **Styles**: Single global CSS file
+- **Assets**: Organized by category in `public/images/`
+
+### File Naming Conventions
+- **Pages**: `page.js` (Next.js App Router convention)
+- **Components**: PascalCase `ComponentName.jsx`
+- **Styles**: `globals.css` (kebab-case)
+- **Images**: Descriptive names with Japanese characters allowed
+
+## 8. Figma Integration Guidelines
+
+### Design Token Mapping
+When importing from Figma, map design tokens as follows:
+
+1. **Colors**: 
+   - Extract hex values from Figma
+   - Map to existing CSS variables or add new ones
+   - Update `:root` in `globals.css`
+
+2. **Typography**:
+   - Font families: Map to `--font-heading` or `--font-body`
+   - Font sizes: Use rem/em or add to spacing scale
+   - Line heights: Use relative units (1.4, 1.8, etc.)
+
+3. **Spacing**:
+   - Map Figma spacing to `--spacing-*` variables
+   - Use 8px base unit (current scale: 8, 16, 32, 64, 96)
+
+4. **Border Radius**:
+   - Map to `--radius-base` or create variants if needed
+
+### Component Mapping
+- **Figma Components** → React Components in `components/`
+- **Figma Frames** → Page sections with semantic HTML
+- **Figma Auto Layout** → CSS Grid/Flexbox
+
+### Image Export
+- Export images from Figma as PNG/JPG
+- Place in appropriate category folder: `public/images/[category]/`
+- Use Next.js Image component for optimization
+- Set appropriate `width` and `height` props
+
+### Responsive Breakpoints
+- **Mobile**: < 768px (current breakpoint)
+- **Tablet**: 768px - 1024px (consider adding)
+- **Desktop**: > 1024px
+
+### Best Practices
+1. **Maintain Token Consistency**: Always use CSS variables, never hardcode values
+2. **Component Reusability**: Extract repeated patterns into components
+3. **Semantic HTML**: Use proper HTML5 semantic elements
+4. **Accessibility**: Include alt text, ARIA labels where needed
+5. **Performance**: Use Next.js Image component for all images
+6. **Responsive**: Test all designs at mobile breakpoint
+
+## 9. Common Patterns
+
+### Button Styles
+```css
+.btn {
+  padding: 12px 24px;
+  border-radius: 0;  /* Note: No border radius on buttons */
+  font-weight: 400;
+}
+
+.btn.primary {
+  background: var(--color-text);
+  color: #fff;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+```
+
+### Card Pattern
+```css
+.card {
+  background: #fff;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-soft);
+}
+```
+
+### Section Pattern
+```css
+.section {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-section);
+}
+```
+
+### Grid Layouts
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+```
+
+## 10. Integration Checklist
+
+When integrating Figma designs:
+
+- [ ] Extract and map design tokens to CSS variables
+- [ ] Create/update components in `components/` directory
+- [ ] Export images to appropriate `public/images/` folders
+- [ ] Use Next.js Image component for all images
+- [ ] Apply responsive styles for mobile breakpoint
+- [ ] Use semantic HTML elements
+- [ ] Include proper alt text and ARIA labels
+- [ ] Test component reusability
+- [ ] Verify token consistency across components
+- [ ] Check accessibility (contrast, keyboard navigation)

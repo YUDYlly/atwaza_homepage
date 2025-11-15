@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "読みもの | @waza",
@@ -26,6 +27,15 @@ export default function Journal() {
           <h2 className="page-subtitle">最新記事</h2>
           <div className="journal-grid">
             <article className="journal-card">
+              <div className="journal-image">
+                <Image
+                  src="/images/食料品/お茶/ほうじ茶_1.jpg"
+                  alt="季節の手仕事"
+                  width={400}
+                  height={250}
+                  className="journal-image-img"
+                />
+              </div>
               <span className="journal-tag">季節の手仕事</span>
               <h3>春の湯上がりを整える、柑橘の香りのバスソルト</h3>
               <p>旬の柑橘を使った浸出方法と香りのブレンド、作り手へのインタビューを掲載予定。</p>
@@ -34,6 +44,15 @@ export default function Journal() {
               </Link>
             </article>
             <article className="journal-card">
+              <div className="journal-image">
+                <Image
+                  src="/images/タオル/専髪タオル/専髪タオル2.jpg"
+                  alt="ケアの知恵"
+                  width={400}
+                  height={250}
+                  className="journal-image-img"
+                />
+              </div>
               <span className="journal-tag">ケアの知恵</span>
               <h3>タオルを長く使うための洗い方・干し方</h3>
               <p>繊維の特徴ごとに最適な洗濯方法を解説。柔らかさを保つコツを紹介します。</p>
@@ -42,6 +61,15 @@ export default function Journal() {
               </Link>
             </article>
             <article className="journal-card">
+              <div className="journal-image">
+                <Image
+                  src="/images/食料品/お茶/レモングラス紅茶_1.jpg"
+                  alt="作り手の声"
+                  width={400}
+                  height={250}
+                  className="journal-image-img"
+                />
+              </div>
               <span className="journal-tag">作り手の声</span>
               <h3>瀬戸内の窯元に聞く、器づくりへのまなざし</h3>
               <p>土の選定から焼成まで、窯元の視点で語る日常と挑戦についてお届けします。</p>

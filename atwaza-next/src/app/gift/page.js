@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "ギフトのご案内 | @waza",
@@ -24,6 +25,15 @@ export default function Gift() {
 
       <section className="page-section">
         <div className="container detail-grid">
+          <div className="card-image" aria-hidden="true">
+            <Image
+              src="/images/食料品/お茶/煎茶【皇】_1.jpg"
+              alt="ギフトボックス"
+              width={600}
+              height={400}
+              className="card-image-img"
+            />
+          </div>
           <div>
             <h2 className="page-subtitle">ギフトボックス</h2>
             <p>

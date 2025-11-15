@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -27,9 +28,14 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-image" aria-hidden="true">
-            <div className="hero-image-placeholder">
-              <span>Seasonal Hero Visual</span>
-            </div>
+            <Image
+              src="/images/食料品/お茶/煎茶【禅】_1.jpg"
+              alt="季節のコレクション"
+              width={800}
+              height={600}
+              className="hero-image-img"
+              priority
+            />
           </div>
         </div>
       </section>
@@ -127,29 +133,17 @@ export default function Home() {
             <div className="products-scroll-grid">
               <article className="product-card">
                 <div className="product-image">
-                  <div className="product-image-placeholder">
-                    <span>Bath Salt</span>
-                  </div>
+                  <Image
+                    src="/images/食料品/お茶/ほうじ茶_1.jpg"
+                    alt="ほうじ茶"
+                    width={400}
+                    height={300}
+                    className="product-image-img"
+                  />
                 </div>
                 <div className="product-content">
-                  <p className="product-category">風呂用品</p>
-                  <h3 className="product-name">紀州みかんのバスソルト</h3>
-                  <p className="product-price">¥3,200（税込）</p>
-                  <Link href="/collections" className="btn-link">
-                    詳細を見る →
-                  </Link>
-                </div>
-              </article>
-
-              <article className="product-card">
-                <div className="product-image">
-                  <div className="product-image-placeholder">
-                    <span>Body Soap</span>
-                  </div>
-                </div>
-                <div className="product-content">
-                  <p className="product-category">風呂用品</p>
-                  <h3 className="product-name">ヒノキと柚子のボディソープ</h3>
+                  <p className="product-category">お茶</p>
+                  <h3 className="product-name">ほうじ茶</h3>
                   <p className="product-price">¥2,800（税込）</p>
                   <Link href="/collections" className="btn-link">
                     詳細を見る →
@@ -159,13 +153,37 @@ export default function Home() {
 
               <article className="product-card">
                 <div className="product-image">
-                  <div className="product-image-placeholder">
-                    <span>Towel</span>
-                  </div>
+                  <Image
+                    src="/images/食料品/お茶/レモングラス紅茶_1.jpg"
+                    alt="レモングラス紅茶"
+                    width={400}
+                    height={300}
+                    className="product-image-img"
+                  />
+                </div>
+                <div className="product-content">
+                  <p className="product-category">お茶</p>
+                  <h3 className="product-name">レモングラス紅茶</h3>
+                  <p className="product-price">¥3,200（税込）</p>
+                  <Link href="/collections" className="btn-link">
+                    詳細を見る →
+                  </Link>
+                </div>
+              </article>
+
+              <article className="product-card">
+                <div className="product-image">
+                  <Image
+                    src="/images/タオル/専髪タオル/専髪タオル1.jpg"
+                    alt="専髪タオル"
+                    width={400}
+                    height={300}
+                    className="product-image-img"
+                  />
                 </div>
                 <div className="product-content">
                   <p className="product-category">タオル</p>
-                  <h3 className="product-name">草木染めフェイスタオル</h3>
+                  <h3 className="product-name">専髪タオル</h3>
                   <p className="product-price">¥2,400（税込）</p>
                   <Link href="/collections" className="btn-link">
                     詳細を見る →
@@ -175,14 +193,18 @@ export default function Home() {
 
               <article className="product-card">
                 <div className="product-image">
-                  <div className="product-image-placeholder">
-                    <span>Tableware</span>
-                  </div>
+                  <Image
+                    src="/images/食料品/お茶/紅茶（知覧産）塗木_1.jpg"
+                    alt="紅茶（知覧産）塗木"
+                    width={400}
+                    height={300}
+                    className="product-image-img"
+                  />
                 </div>
                 <div className="product-content">
-                  <p className="product-category">器</p>
-                  <h3 className="product-name">瀬戸内の朝食プレート</h3>
-                  <p className="product-price">¥4,800（税込）</p>
+                  <p className="product-category">お茶</p>
+                  <h3 className="product-name">紅茶（知覧産）塗木</h3>
+                  <p className="product-price">¥3,500（税込）</p>
                   <Link href="/collections" className="btn-link">
                     詳細を見る →
                   </Link>
@@ -191,14 +213,18 @@ export default function Home() {
 
               <article className="product-card">
                 <div className="product-image">
-                  <div className="product-image-placeholder">
-                    <span>Gift</span>
-                  </div>
+                  <Image
+                    src="/images/食料品/お茶/煎茶【皇】_1.jpg"
+                    alt="煎茶【皇】"
+                    width={400}
+                    height={300}
+                    className="product-image-img"
+                  />
                 </div>
                 <div className="product-content">
-                  <p className="product-category">ギフト</p>
-                  <h3 className="product-name">季節の手仕事ギフトセット</h3>
-                  <p className="product-price">¥6,900（税込）</p>
+                  <p className="product-category">お茶</p>
+                  <h3 className="product-name">煎茶【皇】</h3>
+                  <p className="product-price">¥4,200（税込）</p>
                   <Link href="/gift" className="btn-link">
                     詳細を見る →
                   </Link>
@@ -230,9 +256,13 @@ export default function Home() {
               </Link>
             </div>
             <div className="story-image" aria-hidden="true">
-              <div className="story-image-placeholder">
-                <span>Workshop Visit</span>
-              </div>
+              <Image
+                src="/images/食料品/お茶/煎茶【貴】_1.jpg"
+                alt="工房訪問"
+                width={800}
+                height={600}
+                className="story-image-img"
+              />
             </div>
           </div>
         </div>

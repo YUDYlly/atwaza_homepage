@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "私たちについて | @waza",
@@ -74,9 +75,13 @@ export default function About() {
       <section className="owner">
         <div className="container owner-wrapper">
           <div className="owner-photo" aria-hidden="true">
-            <div className="owner-placeholder">
-              <span>Owner Portrait</span>
-            </div>
+            <Image
+              src="/images/食料品/お茶/煎茶【禅】_1.jpg"
+              alt="オーナー"
+              width={600}
+              height={600}
+              className="owner-photo-img"
+            />
           </div>
           <div className="owner-message">
             <h2>オーナーメッセージ</h2>

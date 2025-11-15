@@ -103,8 +103,9 @@ a:hover {
 
 .brand {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
   color: inherit;
   text-decoration: none;
 }
@@ -116,11 +117,19 @@ a:hover {
   font-weight: 400;
 }
 
+.brand-logo-img {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  object-fit: contain;
+}
+
 .brand-tagline {
   display: block;
   font-size: 0.75rem;
   color: var(--color-muted);
   font-weight: 300;
+  white-space: nowrap;
 }
 
 .main-nav {
@@ -205,6 +214,14 @@ a:hover {
 .hero-image {
   width: 100%;
   aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-image-placeholder,
@@ -330,6 +347,14 @@ a:hover {
 .product-image {
   width: 100%;
   aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .product-content {
@@ -381,6 +406,15 @@ a:hover {
 .story-image {
   width: 100%;
   aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-base);
 }
 
 .story-image-placeholder {
@@ -811,8 +845,15 @@ a:hover {
 
 .page-subtitle {
   font-size: 1.5rem;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
   font-weight: 400;
+}
+
+.category-description {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-md);
+  font-weight: 300;
 }
 
 .detail-grid {
@@ -861,6 +902,15 @@ a:hover {
 .owner-photo {
   width: 100%;
   aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-base);
+}
+
+.owner-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .owner-placeholder {
@@ -916,6 +966,20 @@ a:hover {
   color: var(--color-text);
 }
 
+.card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-base);
+}
+
+.card-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .card-image.placeholder {
   background: #f5f5f5;
   border: 1px dashed #ddd;
@@ -934,6 +998,21 @@ a:hover {
   color: var(--color-muted);
   display: block;
   margin-bottom: var(--spacing-xs);
+}
+
+.journal-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-base);
+  margin-bottom: var(--spacing-sm);
+}
+
+.journal-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .journal-card {
